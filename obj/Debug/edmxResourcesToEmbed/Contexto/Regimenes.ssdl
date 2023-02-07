@@ -1,0 +1,592 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RegUsu_devModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Aut">
+    <Key>
+      <PropertyRef Name="idAu" />
+    </Key>
+    <Property Name="idAu" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contribución">
+    <Key>
+      <PropertyRef Name="idCotribu" />
+    </Key>
+    <Property Name="idCotribu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdInscrip" Type="int" Nullable="false" />
+    <Property Name="IdBase" Type="int" Nullable="false" />
+    <Property Name="Porcent" Type="nchar" MaxLength="10" />
+    <Property Name="Año" Type="char" MaxLength="4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CooP_Clientes">
+    <Key>
+      <PropertyRef Name="IdCI" />
+    </Key>
+    <Property Name="IdCI" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="IdCoop" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cooperativas">
+    <Key>
+      <PropertyRef Name="IdCoop" />
+    </Key>
+    <Property Name="IdCoop" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="255" />
+    <Property Name="IdMun" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="coopPruebas">
+    <Key>
+      <PropertyRef Name="IdCoop" />
+    </Key>
+    <Property Name="IdCoop" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="255" />
+    <Property Name="IdMun" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DPersonales">
+    <Key>
+      <PropertyRef Name="CI" />
+    </Key>
+    <Property Name="CI" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nombre2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Apll" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apll2" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dirección" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="NoCasa" Type="nvarchar" MaxLength="8" />
+    <Property Name="Calle1" Type="nvarchar" MaxLength="200" />
+    <Property Name="Calle2" Type="nvarchar" MaxLength="200" />
+    <Property Name="IdMun" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="IdSexo" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="IdEstado" Type="int" Nullable="false" />
+    <Property Name="IdRégimen" Type="int" Nullable="false" />
+    <Property Name="IdNotific" Type="int" />
+    <Property Name="CiError" Type="bit" Nullable="false" />
+    <Property Name="FCap" Type="date" />
+  </EntityType>
+  <EntityType Name="Grupos">
+    <Key>
+      <PropertyRef Name="IdGrupo" />
+    </Key>
+    <Property Name="IdGrupo" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Rol" Type="nchar" MaxLength="50" />
+    <Property Name="Des" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="HistorialContribución">
+    <Key>
+      <PropertyRef Name="idCambio" />
+    </Key>
+    <Property Name="idCambio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdInscrip" Type="int" Nullable="false" />
+    <Property Name="IdBase" Type="int" Nullable="false" />
+    <Property Name="Porcent" Type="nchar" MaxLength="10" />
+    <Property Name="Año" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="FechaCambio" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Inscripción">
+    <Key>
+      <PropertyRef Name="IdInscrip" />
+    </Key>
+    <Property Name="IdInscrip" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCI" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="FechaAlta" Type="date" Nullable="false" />
+    <Property Name="FechaBaja" Type="date" />
+    <Property Name="IdActiv" Type="int" />
+    <Property Name="FechaBEstatal" Type="date" />
+    <Property Name="FechaOTierra" Type="date" />
+    <Property Name="PagoR" Type="bit" />
+    <Property Name="Plan" Type="int" />
+    <Property Name="Real" Type="int" />
+    <Property Name="CtadCiclico" Type="int" />
+    <Property Name="CausaBaja" Type="int" />
+    <Property Name="OtraCausaBaja" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="MNom">
+    <Key>
+      <PropertyRef Name="IdMNom" />
+    </Key>
+    <Property Name="IdMNom" Type="int" Nullable="false" />
+    <Property Name="Actividad" Type="int" Nullable="false" />
+    <Property Name="Tipo" Type="int" Nullable="false" />
+    <Property Name="BaseC" Type="int" Nullable="false" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+    <Property Name="Régimen" Type="int" Nullable="false" />
+    <Property Name="Provincia" Type="int" Nullable="false" />
+    <Property Name="Municipio" Type="int" Nullable="false" />
+    <Property Name="Cooperativas" Type="int" Nullable="false" />
+    <Property Name="Baja" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Municipios">
+    <Key>
+      <PropertyRef Name="Cod_Mun" />
+    </Key>
+    <Property Name="Cod_Mun" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="Descrip_Mun" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cod_Prov" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="PlanTurquino" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="N_Acividad">
+    <Key>
+      <PropertyRef Name="IdActiv" />
+    </Key>
+    <Property Name="IdActiv" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescripActiv" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RegUsu_dev.dbo.N_Baja' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="N_Baja">
+    <Key>
+      <PropertyRef Name="IdBaja" />
+      <PropertyRef Name="Descrip" />
+    </Key>
+    <Property Name="IdBaja" Type="int" Nullable="false" />
+    <Property Name="Descrip" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="N_BaseC">
+    <Key>
+      <PropertyRef Name="IdBase" />
+    </Key>
+    <Property Name="IdBase" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripbase" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="N_Tipo">
+    <Key>
+      <PropertyRef Name="IdTipo" />
+    </Key>
+    <Property Name="IdTipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescripTipo" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NEstado">
+    <Key>
+      <PropertyRef Name="idEstado" />
+    </Key>
+    <Property Name="idEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DesEstado" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NNotificación">
+    <Key>
+      <PropertyRef Name="IdNotif" />
+    </Key>
+    <Property Name="IdNotif" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCI" Type="char" MaxLength="11" />
+    <Property Name="DesNotif" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="IdRégimenOld" Type="int" />
+    <Property Name="IdRégimenNew" Type="int" />
+    <Property Name="Cod_MunOld" Type="varchar" MaxLength="4" />
+    <Property Name="Cod_MunNew" Type="varchar" MaxLength="4" />
+    <Property Name="CiOld" Type="char" MaxLength="11" />
+    <Property Name="CiNew" Type="nchar" MaxLength="11" />
+  </EntityType>
+  <EntityType Name="NotifyIcons">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BalloonTipText" Type="nvarchar" MaxLength="800" Nullable="false" />
+    <Property Name="BalloonTipTitle" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="tiempo" Type="int" Nullable="false" />
+    <Property Name="BallonTipIcon" Type="int" />
+    <Property Name="IdRégimen" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NRégimen">
+    <Key>
+      <PropertyRef Name="IdRégimen" />
+    </Key>
+    <Property Name="IdRégimen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DesRégimen" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Provincias">
+    <Key>
+      <PropertyRef Name="CodProv" />
+    </Key>
+    <Property Name="CodProv" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="DescripProv" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Salario">
+    <Key>
+      <PropertyRef Name="IdSalario" />
+    </Key>
+    <Property Name="IdSalario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCi" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="Salario" Type="money" Nullable="false" />
+    <Property Name="Año" Type="char" MaxLength="4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TiempoServicio">
+    <Key>
+      <PropertyRef Name="IdTS" />
+    </Key>
+    <Property Name="IdTS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCi" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="Desde" Type="date" Nullable="false" />
+    <Property Name="Hasta" Type="date" Nullable="false" />
+    <Property Name="IdTipo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoAutenticación">
+    <Key>
+      <PropertyRef Name="IdAu" />
+    </Key>
+    <Property Name="IdAu" Type="int" Nullable="false" />
+    <Property Name="Descrip" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RegUsu_dev.dbo.Usu_Eliminados' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Usu_Eliminados">
+    <Key>
+      <PropertyRef Name="CI" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="Apll" />
+      <PropertyRef Name="Apll2" />
+      <PropertyRef Name="IdMun" />
+      <PropertyRef Name="Fecha" />
+      <PropertyRef Name="AutoriMunicipio" />
+    </Key>
+    <Property Name="CI" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apll" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apll2" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IdMun" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="AutoriMunicipio" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AutoriNación" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="IdUser" />
+    </Key>
+    <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Usuario" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Pass" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IdProv" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="IdMun" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="IdGrupo" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RegUsu_dev.dbo.VersiónS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VersiónS">
+    <Key>
+      <PropertyRef Name="v" />
+      <PropertyRef Name="IdRégimen" />
+    </Key>
+    <Property Name="v" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="IdRégimen" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Aut_TipoAutenticación">
+    <End Role="TipoAutenticación" Type="Self.TipoAutenticación" Multiplicity="1" />
+    <End Role="Aut" Type="Self.Aut" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TipoAutenticación">
+        <PropertyRef Name="IdAu" />
+      </Principal>
+      <Dependent Role="Aut">
+        <PropertyRef Name="idAu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contribución_Inscripción">
+    <End Role="Inscripción" Type="Self.Inscripción" Multiplicity="1" />
+    <End Role="Contribución" Type="Self.Contribución" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inscripción">
+        <PropertyRef Name="IdInscrip" />
+      </Principal>
+      <Dependent Role="Contribución">
+        <PropertyRef Name="IdInscrip" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contribución_N_BaseC">
+    <End Role="N_BaseC" Type="Self.N_BaseC" Multiplicity="1" />
+    <End Role="Contribución" Type="Self.Contribución" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="N_BaseC">
+        <PropertyRef Name="IdBase" />
+      </Principal>
+      <Dependent Role="Contribución">
+        <PropertyRef Name="IdBase" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CooP_Clientes_Cooperativas">
+    <End Role="Cooperativas" Type="Self.Cooperativas" Multiplicity="1" />
+    <End Role="CooP_Clientes" Type="Self.CooP_Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cooperativas">
+        <PropertyRef Name="IdCoop" />
+      </Principal>
+      <Dependent Role="CooP_Clientes">
+        <PropertyRef Name="IdCoop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CooP_Clientes_DPersonales">
+    <End Role="DPersonales" Type="Self.DPersonales" Multiplicity="1" />
+    <End Role="CooP_Clientes" Type="Self.CooP_Clientes" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DPersonales">
+        <PropertyRef Name="CI" />
+      </Principal>
+      <Dependent Role="CooP_Clientes">
+        <PropertyRef Name="IdCI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DPersonales_Municipios">
+    <End Role="Municipios" Type="Self.Municipios" Multiplicity="1" />
+    <End Role="DPersonales" Type="Self.DPersonales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipios">
+        <PropertyRef Name="Cod_Mun" />
+      </Principal>
+      <Dependent Role="DPersonales">
+        <PropertyRef Name="IdMun" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DPersonales_nEstado">
+    <End Role="NEstado" Type="Self.NEstado" Multiplicity="1" />
+    <End Role="DPersonales" Type="Self.DPersonales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NEstado">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="DPersonales">
+        <PropertyRef Name="IdEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DPersonales_nRégimen">
+    <End Role="NRégimen" Type="Self.NRégimen" Multiplicity="1" />
+    <End Role="DPersonales" Type="Self.DPersonales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NRégimen">
+        <PropertyRef Name="IdRégimen" />
+      </Principal>
+      <Dependent Role="DPersonales">
+        <PropertyRef Name="IdRégimen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inscripción_DPersonales">
+    <End Role="DPersonales" Type="Self.DPersonales" Multiplicity="1" />
+    <End Role="Inscripción" Type="Self.Inscripción" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DPersonales">
+        <PropertyRef Name="CI" />
+      </Principal>
+      <Dependent Role="Inscripción">
+        <PropertyRef Name="IdCI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inscripción_N_Acividad">
+    <End Role="N_Acividad" Type="Self.N_Acividad" Multiplicity="0..1" />
+    <End Role="Inscripción" Type="Self.Inscripción" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="N_Acividad">
+        <PropertyRef Name="IdActiv" />
+      </Principal>
+      <Dependent Role="Inscripción">
+        <PropertyRef Name="IdActiv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Municipios_Provincias">
+    <End Role="Provincias" Type="Self.Provincias" Multiplicity="1" />
+    <End Role="Municipios" Type="Self.Municipios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincias">
+        <PropertyRef Name="CodProv" />
+      </Principal>
+      <Dependent Role="Municipios">
+        <PropertyRef Name="Cod_Prov" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Salario_DPersonales">
+    <End Role="DPersonales" Type="Self.DPersonales" Multiplicity="1" />
+    <End Role="Salario" Type="Self.Salario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DPersonales">
+        <PropertyRef Name="CI" />
+      </Principal>
+      <Dependent Role="Salario">
+        <PropertyRef Name="IdCi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TiempoServicio_DPersonales">
+    <End Role="DPersonales" Type="Self.DPersonales" Multiplicity="1" />
+    <End Role="TiempoServicio" Type="Self.TiempoServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DPersonales">
+        <PropertyRef Name="CI" />
+      </Principal>
+      <Dependent Role="TiempoServicio">
+        <PropertyRef Name="IdCi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TiempoServicio_N_Tipo">
+    <End Role="N_Tipo" Type="Self.N_Tipo" Multiplicity="1" />
+    <End Role="TiempoServicio" Type="Self.TiempoServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="N_Tipo">
+        <PropertyRef Name="IdTipo" />
+      </Principal>
+      <Dependent Role="TiempoServicio">
+        <PropertyRef Name="IdTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Grupos">
+    <End Role="Grupos" Type="Self.Grupos" Multiplicity="1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupos">
+        <PropertyRef Name="IdGrupo" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="IdGrupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Municipios">
+    <End Role="Municipios" Type="Self.Municipios" Multiplicity="1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipios">
+        <PropertyRef Name="Cod_Mun" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="IdMun" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Provincias">
+    <End Role="Provincias" Type="Self.Provincias" Multiplicity="1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincias">
+        <PropertyRef Name="CodProv" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="IdProv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RegUsu_devModelStoreContainer">
+    <EntitySet Name="Aut" EntityType="Self.Aut" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contribución" EntityType="Self.Contribución" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CooP_Clientes" EntityType="Self.CooP_Clientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cooperativas" EntityType="Self.Cooperativas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="coopPruebas" EntityType="Self.coopPruebas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DPersonales" EntityType="Self.DPersonales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grupos" EntityType="Self.Grupos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HistorialContribución" EntityType="Self.HistorialContribución" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inscripción" EntityType="Self.Inscripción" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MNom" EntityType="Self.MNom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Municipios" EntityType="Self.Municipios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="N_Acividad" EntityType="Self.N_Acividad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="N_BaseC" EntityType="Self.N_BaseC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="N_Tipo" EntityType="Self.N_Tipo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NEstado" EntityType="Self.NEstado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NNotificación" EntityType="Self.NNotificación" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NotifyIcons" EntityType="Self.NotifyIcons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NRégimen" EntityType="Self.NRégimen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Provincias" EntityType="Self.Provincias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Salario" EntityType="Self.Salario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TiempoServicio" EntityType="Self.TiempoServicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoAutenticación" EntityType="Self.TipoAutenticación" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="N_Baja" EntityType="Self.N_Baja" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [N_Baja].[IdBaja] AS [IdBaja], 
+    [N_Baja].[Descrip] AS [Descrip]
+    FROM [dbo].[N_Baja] AS [N_Baja]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Usu_Eliminados" EntityType="Self.Usu_Eliminados" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Usu_Eliminados].[CI] AS [CI], 
+    [Usu_Eliminados].[Nombre] AS [Nombre], 
+    [Usu_Eliminados].[Apll] AS [Apll], 
+    [Usu_Eliminados].[Apll2] AS [Apll2], 
+    [Usu_Eliminados].[IdMun] AS [IdMun], 
+    [Usu_Eliminados].[Fecha] AS [Fecha], 
+    [Usu_Eliminados].[AutoriMunicipio] AS [AutoriMunicipio], 
+    [Usu_Eliminados].[AutoriNación] AS [AutoriNación]
+    FROM [dbo].[Usu_Eliminados] AS [Usu_Eliminados]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VersiónS" EntityType="Self.VersiónS" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VersiónS].[v] AS [v], 
+    [VersiónS].[IdRégimen] AS [IdRégimen]
+    FROM [dbo].[VersiónS] AS [VersiónS]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Aut_TipoAutenticación" Association="Self.FK_Aut_TipoAutenticación">
+      <End Role="TipoAutenticación" EntitySet="TipoAutenticación" />
+      <End Role="Aut" EntitySet="Aut" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contribución_Inscripción" Association="Self.FK_Contribución_Inscripción">
+      <End Role="Inscripción" EntitySet="Inscripción" />
+      <End Role="Contribución" EntitySet="Contribución" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contribución_N_BaseC" Association="Self.FK_Contribución_N_BaseC">
+      <End Role="N_BaseC" EntitySet="N_BaseC" />
+      <End Role="Contribución" EntitySet="Contribución" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CooP_Clientes_Cooperativas" Association="Self.FK_CooP_Clientes_Cooperativas">
+      <End Role="Cooperativas" EntitySet="Cooperativas" />
+      <End Role="CooP_Clientes" EntitySet="CooP_Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CooP_Clientes_DPersonales" Association="Self.FK_CooP_Clientes_DPersonales">
+      <End Role="DPersonales" EntitySet="DPersonales" />
+      <End Role="CooP_Clientes" EntitySet="CooP_Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DPersonales_Municipios" Association="Self.FK_DPersonales_Municipios">
+      <End Role="Municipios" EntitySet="Municipios" />
+      <End Role="DPersonales" EntitySet="DPersonales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DPersonales_nEstado" Association="Self.FK_DPersonales_nEstado">
+      <End Role="NEstado" EntitySet="NEstado" />
+      <End Role="DPersonales" EntitySet="DPersonales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DPersonales_nRégimen" Association="Self.FK_DPersonales_nRégimen">
+      <End Role="NRégimen" EntitySet="NRégimen" />
+      <End Role="DPersonales" EntitySet="DPersonales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inscripción_DPersonales" Association="Self.FK_Inscripción_DPersonales">
+      <End Role="DPersonales" EntitySet="DPersonales" />
+      <End Role="Inscripción" EntitySet="Inscripción" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inscripción_N_Acividad" Association="Self.FK_Inscripción_N_Acividad">
+      <End Role="N_Acividad" EntitySet="N_Acividad" />
+      <End Role="Inscripción" EntitySet="Inscripción" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Municipios_Provincias" Association="Self.FK_Municipios_Provincias">
+      <End Role="Provincias" EntitySet="Provincias" />
+      <End Role="Municipios" EntitySet="Municipios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Salario_DPersonales" Association="Self.FK_Salario_DPersonales">
+      <End Role="DPersonales" EntitySet="DPersonales" />
+      <End Role="Salario" EntitySet="Salario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TiempoServicio_DPersonales" Association="Self.FK_TiempoServicio_DPersonales">
+      <End Role="DPersonales" EntitySet="DPersonales" />
+      <End Role="TiempoServicio" EntitySet="TiempoServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TiempoServicio_N_Tipo" Association="Self.FK_TiempoServicio_N_Tipo">
+      <End Role="N_Tipo" EntitySet="N_Tipo" />
+      <End Role="TiempoServicio" EntitySet="TiempoServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Grupos" Association="Self.FK_Usuarios_Grupos">
+      <End Role="Grupos" EntitySet="Grupos" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Municipios" Association="Self.FK_Usuarios_Municipios">
+      <End Role="Municipios" EntitySet="Municipios" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Provincias" Association="Self.FK_Usuarios_Provincias">
+      <End Role="Provincias" EntitySet="Provincias" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

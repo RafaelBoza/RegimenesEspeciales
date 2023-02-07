@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RegUsu_devModelStoreContainer" CdmEntityContainer="RegUsu_devEntities1">
+    <EntitySetMapping Name="Aut">
+      <EntityTypeMapping TypeName="RegUsu_devModel.Aut">
+        <MappingFragment StoreEntitySet="Aut">
+          <ScalarProperty Name="idAu" ColumnName="idAu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contribución">
+      <EntityTypeMapping TypeName="RegUsu_devModel.Contribución">
+        <MappingFragment StoreEntitySet="Contribución">
+          <ScalarProperty Name="idCotribu" ColumnName="idCotribu" />
+          <ScalarProperty Name="IdInscrip" ColumnName="IdInscrip" />
+          <ScalarProperty Name="IdBase" ColumnName="IdBase" />
+          <ScalarProperty Name="Porcent" ColumnName="Porcent" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cooperativas">
+      <EntityTypeMapping TypeName="RegUsu_devModel.Cooperativas">
+        <MappingFragment StoreEntitySet="Cooperativas">
+          <ScalarProperty Name="IdCoop" ColumnName="IdCoop" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdMun" ColumnName="IdMun" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="coopPruebas">
+      <EntityTypeMapping TypeName="RegUsu_devModel.coopPruebas">
+        <MappingFragment StoreEntitySet="coopPruebas">
+          <ScalarProperty Name="IdCoop" ColumnName="IdCoop" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdMun" ColumnName="IdMun" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DPersonales">
+      <EntityTypeMapping TypeName="RegUsu_devModel.DPersonales">
+        <MappingFragment StoreEntitySet="DPersonales">
+          <ScalarProperty Name="CI" ColumnName="CI" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Nombre2" ColumnName="Nombre2" />
+          <ScalarProperty Name="Apll" ColumnName="Apll" />
+          <ScalarProperty Name="Apll2" ColumnName="Apll2" />
+          <ScalarProperty Name="Dirección" ColumnName="Dirección" />
+          <ScalarProperty Name="NoCasa" ColumnName="NoCasa" />
+          <ScalarProperty Name="Calle1" ColumnName="Calle1" />
+          <ScalarProperty Name="Calle2" ColumnName="Calle2" />
+          <ScalarProperty Name="IdMun" ColumnName="IdMun" />
+          <ScalarProperty Name="IdSexo" ColumnName="IdSexo" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+          <ScalarProperty Name="IdRégimen" ColumnName="IdRégimen" />
+          <ScalarProperty Name="IdNotific" ColumnName="IdNotific" />
+          <ScalarProperty Name="CiError" ColumnName="CiError" />
+          <ScalarProperty Name="FCap" ColumnName="FCap" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grupos">
+      <EntityTypeMapping TypeName="RegUsu_devModel.Grupos">
+        <MappingFragment StoreEntitySet="Grupos">
+          <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+          <ScalarProperty Name="Des" ColumnName="Des" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inscripción">
+      <EntityTypeMapping TypeName="RegUsu_devModel.Inscripción">
+        <MappingFragment StoreEntitySet="Inscripción">
+          <ScalarProperty Name="IdInscrip" ColumnName="IdInscrip" />
+          <ScalarProperty Name="IdCI" ColumnName="IdCI" />
+          <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+          <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
+          <ScalarProperty Name="IdActiv" ColumnName="IdActiv" />
+          <ScalarProperty Name="FechaBEstatal" ColumnName="FechaBEstatal" />
+          <ScalarProperty Name="FechaOTierra" ColumnName="FechaOTierra" />
+          <ScalarProperty Name="PagoR" ColumnName="PagoR" />
+          <ScalarProperty Name="Plan" ColumnName="Plan" />
+          <ScalarProperty Name="Real" ColumnName="Real" />
+          <ScalarProperty Name="CtadCiclico" ColumnName="CtadCiclico" />
+          <ScalarProperty Name="CausaBaja" ColumnName="CausaBaja" />
+          <ScalarProperty Name="OtraCausaBaja" ColumnName="OtraCausaBaja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MNom">
+      <EntityTypeMapping TypeName="RegUsu_devModel.MNom">
+        <MappingFragment StoreEntitySet="MNom">
+          <ScalarProperty Name="IdMNom" ColumnName="IdMNom" />
+          <ScalarProperty Name="Actividad" ColumnName="Actividad" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="BaseC" ColumnName="BaseC" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Régimen" ColumnName="Régimen" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+          <ScalarProperty Name="Cooperativas" ColumnName="Cooperativas" />
+          <ScalarProperty Name="Baja" ColumnName="Baja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Municipios">
+      <EntityTypeMapping TypeName="RegUsu_devModel.Municipios">
+        <MappingFragment StoreEntitySet="Municipios">
+          <ScalarProperty Name="Cod_Mun" ColumnName="Cod_Mun" />
+          <ScalarProperty Name="Descrip_Mun" ColumnName="Descrip_Mun" />
+          <ScalarProperty Name="Cod_Prov" ColumnName="Cod_Prov" />
+          <ScalarProperty Name="PlanTurquino" ColumnName="PlanTurquino" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="N_Acividad">
+      <EntityTypeMapping TypeName="RegUsu_devModel.N_Acividad">
+        <MappingFragment StoreEntitySet="N_Acividad">
+          <ScalarProperty Name="IdActiv" ColumnName="IdActiv" />
+          <ScalarProperty Name="DescripActiv" ColumnName="DescripActiv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="N_BaseC">
+      <EntityTypeMapping TypeName="RegUsu_devModel.N_BaseC">
+        <MappingFragment StoreEntitySet="N_BaseC">
+          <ScalarProperty Name="IdBase" ColumnName="IdBase" />
+          <ScalarProperty Name="Descripbase" ColumnName="Descripbase" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="N_Tipo">
+      <EntityTypeMapping TypeName="RegUsu_devModel.N_Tipo">
+        <MappingFragment StoreEntitySet="N_Tipo">
+          <ScalarProperty Name="IdTipo" ColumnName="IdTipo" />
+          <ScalarProperty Name="DescripTipo" ColumnName="DescripTipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NEstado">
+      <EntityTypeMapping TypeName="RegUsu_devModel.NEstado">
+        <MappingFragment StoreEntitySet="NEstado">
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+          <ScalarProperty Name="DesEstado" ColumnName="DesEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NNotificación">
+      <EntityTypeMapping TypeName="RegUsu_devModel.NNotificación">
+        <MappingFragment StoreEntitySet="NNotificación">
+          <ScalarProperty Name="IdNotif" ColumnName="IdNotif" />
+          <ScalarProperty Name="idCI" ColumnName="idCI" />
+          <ScalarProperty Name="DesNotif" ColumnName="DesNotif" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="IdRégimenOld" ColumnName="IdRégimenOld" />
+          <ScalarProperty Name="IdRégimenNew" ColumnName="IdRégimenNew" />
+          <ScalarProperty Name="Cod_MunOld" ColumnName="Cod_MunOld" />
+          <ScalarProperty Name="Cod_MunNew" ColumnName="Cod_MunNew" />
+          <ScalarProperty Name="CiOld" ColumnName="CiOld" />
+          <ScalarProperty Name="CiNew" ColumnName="CiNew" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotifyIcons">
+      <EntityTypeMapping TypeName="RegUsu_devModel.NotifyIcons">
+        <MappingFragment StoreEntitySet="NotifyIcons">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BalloonTipText" ColumnName="BalloonTipText" />
+          <ScalarProperty Name="BalloonTipTitle" ColumnName="BalloonTipTitle" />
+          <ScalarProperty Name="tiempo" ColumnName="tiempo" />
+          <ScalarProperty Name="BallonTipIcon" ColumnName="BallonTipIcon" />
+          <ScalarProperty Name="IdRégimen" ColumnName="IdRégimen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NRégimen">
+      <EntityTypeMapping TypeName="RegUsu_devModel.NRégimen">
+        <MappingFragment StoreEntitySet="NRégimen">
+          <ScalarProperty Name="IdRégimen" ColumnName="IdRégimen" />
+          <ScalarProperty Name="DesRégimen" ColumnName="DesRégimen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provincias">
+      <EntityTypeMapping TypeName="RegUsu_devModel.Provincias">
+        <MappingFragment StoreEntitySet="Provincias">
+          <ScalarProperty Name="CodProv" ColumnName="CodProv" />
+          <ScalarProperty Name="DescripProv" ColumnName="DescripProv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salario">
+      <EntityTypeMapping TypeName="RegUsu_devModel.Salario">
+        <MappingFragment StoreEntitySet="Salario">
+          <ScalarProperty Name="IdSalario" ColumnName="IdSalario" />
+          <ScalarProperty Name="IdCi" ColumnName="IdCi" />
+          <ScalarProperty Name="Salario1" ColumnName="Salario" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TiempoServicio">
+      <EntityTypeMapping TypeName="RegUsu_devModel.TiempoServicio">
+        <MappingFragment StoreEntitySet="TiempoServicio">
+          <ScalarProperty Name="IdTS" ColumnName="IdTS" />
+          <ScalarProperty Name="IdCi" ColumnName="IdCi" />
+          <ScalarProperty Name="Desde" ColumnName="Desde" />
+          <ScalarProperty Name="Hasta" ColumnName="Hasta" />
+          <ScalarProperty Name="IdTipo" ColumnName="IdTipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoAutenticación">
+      <EntityTypeMapping TypeName="RegUsu_devModel.TipoAutenticación">
+        <MappingFragment StoreEntitySet="TipoAutenticación">
+          <ScalarProperty Name="IdAu" ColumnName="IdAu" />
+          <ScalarProperty Name="Descrip" ColumnName="Descrip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="RegUsu_devModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="IdProv" ColumnName="IdProv" />
+          <ScalarProperty Name="IdMun" ColumnName="IdMun" />
+          <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+          <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="N_Baja">
+      <EntityTypeMapping TypeName="RegUsu_devModel.N_Baja">
+        <MappingFragment StoreEntitySet="N_Baja">
+          <ScalarProperty Name="IdBaja" ColumnName="IdBaja" />
+          <ScalarProperty Name="Descrip" ColumnName="Descrip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usu_Eliminados">
+      <EntityTypeMapping TypeName="RegUsu_devModel.Usu_Eliminados">
+        <MappingFragment StoreEntitySet="Usu_Eliminados">
+          <ScalarProperty Name="CI" ColumnName="CI" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apll" ColumnName="Apll" />
+          <ScalarProperty Name="Apll2" ColumnName="Apll2" />
+          <ScalarProperty Name="IdMun" ColumnName="IdMun" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="AutoriMunicipio" ColumnName="AutoriMunicipio" />
+          <ScalarProperty Name="AutoriNación" ColumnName="AutoriNación" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VersiónS">
+      <EntityTypeMapping TypeName="RegUsu_devModel.VersiónS">
+        <MappingFragment StoreEntitySet="VersiónS">
+          <ScalarProperty Name="v" ColumnName="v" />
+          <ScalarProperty Name="IdRégimen" ColumnName="IdRégimen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CooP_Clientes" TypeName="RegUsu_devModel.CooP_Clientes" StoreEntitySet="CooP_Clientes">
+      <EndProperty Name="Cooperativas">
+        <ScalarProperty Name="IdCoop" ColumnName="IdCoop" />
+      </EndProperty>
+      <EndProperty Name="DPersonales">
+        <ScalarProperty Name="CI" ColumnName="IdCI" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="HistorialContribución">
+      <EntityTypeMapping TypeName="RegUsu_devModel.HistorialContribución">
+        <MappingFragment StoreEntitySet="HistorialContribución">
+          <ScalarProperty Name="FechaCambio" ColumnName="FechaCambio" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="Porcent" ColumnName="Porcent" />
+          <ScalarProperty Name="IdBase" ColumnName="IdBase" />
+          <ScalarProperty Name="IdInscrip" ColumnName="IdInscrip" />
+          <ScalarProperty Name="idCambio" ColumnName="idCambio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

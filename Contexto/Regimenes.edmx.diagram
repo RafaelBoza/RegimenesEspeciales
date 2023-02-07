@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1aca7e66a5794fe59d66646889d99f6a" Name="Diagram1">
+        <EntityTypeShape EntityType="RegUsu_devModel.Aut" Width="1.5" PointX="13" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.Contribución" Width="1.5" PointX="12.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.Cooperativas" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.coopPruebas" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.DPersonales" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.Grupos" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.Inscripción" Width="1.5" PointX="10.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.MNom" Width="1.5" PointX="9.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.Municipios" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.N_Acividad" Width="1.5" PointX="8.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.N_BaseC" Width="1.5" PointX="10.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.N_Tipo" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.NEstado" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.NNotificación" Width="1.5" PointX="11.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.NotifyIcons" Width="1.5" PointX="12.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.NRégimen" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.Provincias" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.Salario" Width="1.5" PointX="7.5" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.TiempoServicio" Width="1.5" PointX="7.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.TipoAutenticación" Width="1.5" PointX="10.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.Usuarios" Width="1.5" PointX="8.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.N_Baja" Width="1.5" PointX="13.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.Usu_Eliminados" Width="1.5" PointX="13.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegUsu_devModel.VersiónS" Width="1.5" PointX="14.75" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="RegUsu_devModel.FK_Aut_TipoAutenticación" ManuallyRouted="false" />
+        <AssociationConnector Association="RegUsu_devModel.FK_Contribución_Inscripción" ManuallyRouted="false" />
+        <AssociationConnector Association="RegUsu_devModel.FK_Contribución_N_BaseC" ManuallyRouted="false" />
+        <AssociationConnector Association="RegUsu_devModel.FK_DPersonales_Municipios" ManuallyRouted="false" />
+        <AssociationConnector Association="RegUsu_devModel.FK_DPersonales_nEstado" ManuallyRouted="false" />
+        <AssociationConnector Association="RegUsu_devModel.FK_DPersonales_nRégimen" ManuallyRouted="false" />
+        <AssociationConnector Association="RegUsu_devModel.FK_Inscripción_DPersonales" ManuallyRouted="false" />
+        <AssociationConnector Association="RegUsu_devModel.FK_Salario_DPersonales" ManuallyRouted="false" />
+        <AssociationConnector Association="RegUsu_devModel.FK_TiempoServicio_DPersonales" ManuallyRouted="false" />
+        <AssociationConnector Association="RegUsu_devModel.FK_Usuarios_Grupos" ManuallyRouted="false" />
+        <AssociationConnector Association="RegUsu_devModel.FK_Inscripción_N_Acividad" ManuallyRouted="false" />
+        <AssociationConnector Association="RegUsu_devModel.FK_Municipios_Provincias" ManuallyRouted="false" />
+        <AssociationConnector Association="RegUsu_devModel.FK_Usuarios_Municipios" ManuallyRouted="false" />
+        <AssociationConnector Association="RegUsu_devModel.FK_TiempoServicio_N_Tipo" ManuallyRouted="false" />
+        <AssociationConnector Association="RegUsu_devModel.FK_Usuarios_Provincias" ManuallyRouted="false" />
+        <AssociationConnector Association="RegUsu_devModel.CooP_Clientes" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="RegUsu_devModel.HistorialContribución" Width="1.5" PointX="15.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,565 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RegUsu_devModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Aut">
+    <Key>
+      <PropertyRef Name="idAu" />
+    </Key>
+    <Property Name="idAu" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TipoAutenticación" Relationship="Self.FK_Aut_TipoAutenticación" FromRole="Aut" ToRole="TipoAutenticación" />
+  </EntityType>
+  <EntityType Name="Contribución">
+    <Key>
+      <PropertyRef Name="idCotribu" />
+    </Key>
+    <Property Name="idCotribu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdInscrip" Type="Int32" Nullable="false" />
+    <Property Name="IdBase" Type="Int32" Nullable="false" />
+    <Property Name="Porcent" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Año" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Inscripción" Relationship="Self.FK_Contribución_Inscripción" FromRole="Contribución" ToRole="Inscripción" />
+    <NavigationProperty Name="N_BaseC" Relationship="Self.FK_Contribución_N_BaseC" FromRole="Contribución" ToRole="N_BaseC" />
+  </EntityType>
+  <EntityType Name="Cooperativas">
+    <Key>
+      <PropertyRef Name="IdCoop" />
+    </Key>
+    <Property Name="IdCoop" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IdMun" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DPersonales" Relationship="Self.CooP_Clientes" FromRole="Cooperativas" ToRole="DPersonales" />
+  </EntityType>
+  <EntityType Name="coopPruebas">
+    <Key>
+      <PropertyRef Name="IdCoop" />
+    </Key>
+    <Property Name="IdCoop" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IdMun" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DPersonales">
+    <Key>
+      <PropertyRef Name="CI" />
+    </Key>
+    <Property Name="CI" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Apll" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Apll2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dirección" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NoCasa" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="Calle1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Calle2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IdMun" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdSexo" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="IdEstado" Type="Int32" Nullable="false" />
+    <Property Name="IdRégimen" Type="Int32" Nullable="false" />
+    <Property Name="IdNotific" Type="Int32" />
+    <Property Name="CiError" Type="Boolean" Nullable="false" />
+    <Property Name="FCap" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Municipios" Relationship="Self.FK_DPersonales_Municipios" FromRole="DPersonales" ToRole="Municipios" />
+    <NavigationProperty Name="NEstado" Relationship="Self.FK_DPersonales_nEstado" FromRole="DPersonales" ToRole="NEstado" />
+    <NavigationProperty Name="NRégimen" Relationship="Self.FK_DPersonales_nRégimen" FromRole="DPersonales" ToRole="NRégimen" />
+    <NavigationProperty Name="Inscripción" Relationship="Self.FK_Inscripción_DPersonales" FromRole="DPersonales" ToRole="Inscripción" />
+    <NavigationProperty Name="Salario" Relationship="Self.FK_Salario_DPersonales" FromRole="DPersonales" ToRole="Salario" />
+    <NavigationProperty Name="TiempoServicio" Relationship="Self.FK_TiempoServicio_DPersonales" FromRole="DPersonales" ToRole="TiempoServicio" />
+    <NavigationProperty Name="Cooperativas" Relationship="Self.CooP_Clientes" FromRole="DPersonales" ToRole="Cooperativas" />
+  </EntityType>
+  <EntityType Name="Grupos">
+    <Key>
+      <PropertyRef Name="IdGrupo" />
+    </Key>
+    <Property Name="IdGrupo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Rol" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Des" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Grupos" FromRole="Grupos" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Inscripción">
+    <Key>
+      <PropertyRef Name="IdInscrip" />
+    </Key>
+    <Property Name="IdInscrip" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCI" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="FechaAlta" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FechaBaja" Type="DateTime" Precision="0" />
+    <Property Name="IdActiv" Type="Int32" />
+    <Property Name="FechaBEstatal" Type="DateTime" Precision="0" />
+    <Property Name="FechaOTierra" Type="DateTime" Precision="0" />
+    <Property Name="PagoR" Type="Boolean" />
+    <Property Name="Plan" Type="Int32" />
+    <Property Name="Real" Type="Int32" />
+    <Property Name="CtadCiclico" Type="Int32" />
+    <Property Name="CausaBaja" Type="Int32" />
+    <Property Name="OtraCausaBaja" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Contribución" Relationship="Self.FK_Contribución_Inscripción" FromRole="Inscripción" ToRole="Contribución" />
+    <NavigationProperty Name="DPersonales" Relationship="Self.FK_Inscripción_DPersonales" FromRole="Inscripción" ToRole="DPersonales" />
+    <NavigationProperty Name="N_Acividad" Relationship="Self.FK_Inscripción_N_Acividad" FromRole="Inscripción" ToRole="N_Acividad" />
+  </EntityType>
+  <EntityType Name="MNom">
+    <Key>
+      <PropertyRef Name="IdMNom" />
+    </Key>
+    <Property Name="IdMNom" Type="Int32" Nullable="false" />
+    <Property Name="Actividad" Type="Int32" Nullable="false" />
+    <Property Name="Tipo" Type="Int32" Nullable="false" />
+    <Property Name="BaseC" Type="Int32" Nullable="false" />
+    <Property Name="Estado" Type="Int32" Nullable="false" />
+    <Property Name="Régimen" Type="Int32" Nullable="false" />
+    <Property Name="Provincia" Type="Int32" Nullable="false" />
+    <Property Name="Municipio" Type="Int32" Nullable="false" />
+    <Property Name="Cooperativas" Type="Int32" Nullable="false" />
+    <Property Name="Baja" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Municipios">
+    <Key>
+      <PropertyRef Name="Cod_Mun" />
+    </Key>
+    <Property Name="Cod_Mun" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descrip_Mun" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Cod_Prov" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PlanTurquino" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="DPersonales" Relationship="Self.FK_DPersonales_Municipios" FromRole="Municipios" ToRole="DPersonales" />
+    <NavigationProperty Name="Provincias" Relationship="Self.FK_Municipios_Provincias" FromRole="Municipios" ToRole="Provincias" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Municipios" FromRole="Municipios" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="N_Acividad">
+    <Key>
+      <PropertyRef Name="IdActiv" />
+    </Key>
+    <Property Name="IdActiv" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescripActiv" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Inscripción" Relationship="Self.FK_Inscripción_N_Acividad" FromRole="N_Acividad" ToRole="Inscripción" />
+  </EntityType>
+  <EntityType Name="N_BaseC">
+    <Key>
+      <PropertyRef Name="IdBase" />
+    </Key>
+    <Property Name="IdBase" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripbase" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Contribución" Relationship="Self.FK_Contribución_N_BaseC" FromRole="N_BaseC" ToRole="Contribución" />
+  </EntityType>
+  <EntityType Name="N_Tipo">
+    <Key>
+      <PropertyRef Name="IdTipo" />
+    </Key>
+    <Property Name="IdTipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescripTipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="TiempoServicio" Relationship="Self.FK_TiempoServicio_N_Tipo" FromRole="N_Tipo" ToRole="TiempoServicio" />
+  </EntityType>
+  <EntityType Name="NEstado">
+    <Key>
+      <PropertyRef Name="idEstado" />
+    </Key>
+    <Property Name="idEstado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DesEstado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DPersonales" Relationship="Self.FK_DPersonales_nEstado" FromRole="NEstado" ToRole="DPersonales" />
+  </EntityType>
+  <EntityType Name="NNotificación">
+    <Key>
+      <PropertyRef Name="IdNotif" />
+    </Key>
+    <Property Name="IdNotif" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCI" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="DesNotif" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IdRégimenOld" Type="Int32" />
+    <Property Name="IdRégimenNew" Type="Int32" />
+    <Property Name="Cod_MunOld" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="Cod_MunNew" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="CiOld" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="CiNew" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="NotifyIcons">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BalloonTipText" Type="String" MaxLength="800" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BalloonTipTitle" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tiempo" Type="Int32" Nullable="false" />
+    <Property Name="BallonTipIcon" Type="Int32" />
+    <Property Name="IdRégimen" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NRégimen">
+    <Key>
+      <PropertyRef Name="IdRégimen" />
+    </Key>
+    <Property Name="IdRégimen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DesRégimen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DPersonales" Relationship="Self.FK_DPersonales_nRégimen" FromRole="NRégimen" ToRole="DPersonales" />
+  </EntityType>
+  <EntityType Name="Provincias">
+    <Key>
+      <PropertyRef Name="CodProv" />
+    </Key>
+    <Property Name="CodProv" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DescripProv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Municipios" Relationship="Self.FK_Municipios_Provincias" FromRole="Provincias" ToRole="Municipios" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Provincias" FromRole="Provincias" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Salario">
+    <Key>
+      <PropertyRef Name="IdSalario" />
+    </Key>
+    <Property Name="IdSalario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCi" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Salario1" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Año" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DPersonales" Relationship="Self.FK_Salario_DPersonales" FromRole="Salario" ToRole="DPersonales" />
+  </EntityType>
+  <EntityType Name="TiempoServicio">
+    <Key>
+      <PropertyRef Name="IdTS" />
+    </Key>
+    <Property Name="IdTS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCi" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Desde" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Hasta" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IdTipo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DPersonales" Relationship="Self.FK_TiempoServicio_DPersonales" FromRole="TiempoServicio" ToRole="DPersonales" />
+    <NavigationProperty Name="N_Tipo" Relationship="Self.FK_TiempoServicio_N_Tipo" FromRole="TiempoServicio" ToRole="N_Tipo" />
+  </EntityType>
+  <EntityType Name="TipoAutenticación">
+    <Key>
+      <PropertyRef Name="IdAu" />
+    </Key>
+    <Property Name="IdAu" Type="Int32" Nullable="false" />
+    <Property Name="Descrip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Aut" Relationship="Self.FK_Aut_TipoAutenticación" FromRole="TipoAutenticación" ToRole="Aut" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="IdUser" />
+    </Key>
+    <Property Name="IdUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Usuario" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdProv" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdMun" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdGrupo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Eliminado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Grupos" Relationship="Self.FK_Usuarios_Grupos" FromRole="Usuarios" ToRole="Grupos" />
+    <NavigationProperty Name="Municipios" Relationship="Self.FK_Usuarios_Municipios" FromRole="Usuarios" ToRole="Municipios" />
+    <NavigationProperty Name="Provincias" Relationship="Self.FK_Usuarios_Provincias" FromRole="Usuarios" ToRole="Provincias" />
+  </EntityType>
+  <EntityType Name="N_Baja">
+    <Key>
+      <PropertyRef Name="IdBaja" />
+      <PropertyRef Name="Descrip" />
+    </Key>
+    <Property Name="IdBaja" Type="Int32" Nullable="false" />
+    <Property Name="Descrip" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usu_Eliminados">
+    <Key>
+      <PropertyRef Name="CI" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="Apll" />
+      <PropertyRef Name="Apll2" />
+      <PropertyRef Name="IdMun" />
+      <PropertyRef Name="Fecha" />
+      <PropertyRef Name="AutoriMunicipio" />
+    </Key>
+    <Property Name="CI" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Apll" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Apll2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdMun" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AutoriMunicipio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AutoriNación" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VersiónS">
+    <Key>
+      <PropertyRef Name="v" />
+      <PropertyRef Name="IdRégimen" />
+    </Key>
+    <Property Name="v" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdRégimen" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Aut_TipoAutenticación">
+    <End Role="TipoAutenticación" Type="Self.TipoAutenticación" Multiplicity="1" />
+    <End Role="Aut" Type="Self.Aut" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TipoAutenticación">
+        <PropertyRef Name="IdAu" />
+      </Principal>
+      <Dependent Role="Aut">
+        <PropertyRef Name="idAu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contribución_Inscripción">
+    <End Role="Inscripción" Type="Self.Inscripción" Multiplicity="1" />
+    <End Role="Contribución" Type="Self.Contribución" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inscripción">
+        <PropertyRef Name="IdInscrip" />
+      </Principal>
+      <Dependent Role="Contribución">
+        <PropertyRef Name="IdInscrip" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contribución_N_BaseC">
+    <End Role="N_BaseC" Type="Self.N_BaseC" Multiplicity="1" />
+    <End Role="Contribución" Type="Self.Contribución" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="N_BaseC">
+        <PropertyRef Name="IdBase" />
+      </Principal>
+      <Dependent Role="Contribución">
+        <PropertyRef Name="IdBase" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DPersonales_Municipios">
+    <End Role="Municipios" Type="Self.Municipios" Multiplicity="1" />
+    <End Role="DPersonales" Type="Self.DPersonales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipios">
+        <PropertyRef Name="Cod_Mun" />
+      </Principal>
+      <Dependent Role="DPersonales">
+        <PropertyRef Name="IdMun" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DPersonales_nEstado">
+    <End Role="NEstado" Type="Self.NEstado" Multiplicity="1" />
+    <End Role="DPersonales" Type="Self.DPersonales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NEstado">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="DPersonales">
+        <PropertyRef Name="IdEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DPersonales_nRégimen">
+    <End Role="NRégimen" Type="Self.NRégimen" Multiplicity="1" />
+    <End Role="DPersonales" Type="Self.DPersonales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NRégimen">
+        <PropertyRef Name="IdRégimen" />
+      </Principal>
+      <Dependent Role="DPersonales">
+        <PropertyRef Name="IdRégimen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inscripción_DPersonales">
+    <End Role="DPersonales" Type="Self.DPersonales" Multiplicity="1" />
+    <End Role="Inscripción" Type="Self.Inscripción" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DPersonales">
+        <PropertyRef Name="CI" />
+      </Principal>
+      <Dependent Role="Inscripción">
+        <PropertyRef Name="IdCI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Salario_DPersonales">
+    <End Role="DPersonales" Type="Self.DPersonales" Multiplicity="1" />
+    <End Role="Salario" Type="Self.Salario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DPersonales">
+        <PropertyRef Name="CI" />
+      </Principal>
+      <Dependent Role="Salario">
+        <PropertyRef Name="IdCi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TiempoServicio_DPersonales">
+    <End Role="DPersonales" Type="Self.DPersonales" Multiplicity="1" />
+    <End Role="TiempoServicio" Type="Self.TiempoServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DPersonales">
+        <PropertyRef Name="CI" />
+      </Principal>
+      <Dependent Role="TiempoServicio">
+        <PropertyRef Name="IdCi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Grupos">
+    <End Role="Grupos" Type="Self.Grupos" Multiplicity="1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupos">
+        <PropertyRef Name="IdGrupo" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="IdGrupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inscripción_N_Acividad">
+    <End Role="N_Acividad" Type="Self.N_Acividad" Multiplicity="0..1" />
+    <End Role="Inscripción" Type="Self.Inscripción" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="N_Acividad">
+        <PropertyRef Name="IdActiv" />
+      </Principal>
+      <Dependent Role="Inscripción">
+        <PropertyRef Name="IdActiv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Municipios_Provincias">
+    <End Role="Provincias" Type="Self.Provincias" Multiplicity="1" />
+    <End Role="Municipios" Type="Self.Municipios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincias">
+        <PropertyRef Name="CodProv" />
+      </Principal>
+      <Dependent Role="Municipios">
+        <PropertyRef Name="Cod_Prov" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Municipios">
+    <End Role="Municipios" Type="Self.Municipios" Multiplicity="1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipios">
+        <PropertyRef Name="Cod_Mun" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="IdMun" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TiempoServicio_N_Tipo">
+    <End Role="N_Tipo" Type="Self.N_Tipo" Multiplicity="1" />
+    <End Role="TiempoServicio" Type="Self.TiempoServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="N_Tipo">
+        <PropertyRef Name="IdTipo" />
+      </Principal>
+      <Dependent Role="TiempoServicio">
+        <PropertyRef Name="IdTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Provincias">
+    <End Role="Provincias" Type="Self.Provincias" Multiplicity="1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincias">
+        <PropertyRef Name="CodProv" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="IdProv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CooP_Clientes">
+    <End Role="Cooperativas" Type="Self.Cooperativas" Multiplicity="0..1" />
+    <End Role="DPersonales" Type="Self.DPersonales" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="RegUsu_devEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Aut" EntityType="Self.Aut" />
+    <EntitySet Name="Contribución" EntityType="Self.Contribución" />
+    <EntitySet Name="Cooperativas" EntityType="Self.Cooperativas" />
+    <EntitySet Name="coopPruebas" EntityType="Self.coopPruebas" />
+    <EntitySet Name="DPersonales" EntityType="Self.DPersonales" />
+    <EntitySet Name="Grupos" EntityType="Self.Grupos" />
+    <EntitySet Name="Inscripción" EntityType="Self.Inscripción" />
+    <EntitySet Name="MNom" EntityType="Self.MNom" />
+    <EntitySet Name="Municipios" EntityType="Self.Municipios" />
+    <EntitySet Name="N_Acividad" EntityType="Self.N_Acividad" />
+    <EntitySet Name="N_BaseC" EntityType="Self.N_BaseC" />
+    <EntitySet Name="N_Tipo" EntityType="Self.N_Tipo" />
+    <EntitySet Name="NEstado" EntityType="Self.NEstado" />
+    <EntitySet Name="NNotificación" EntityType="Self.NNotificación" />
+    <EntitySet Name="NotifyIcons" EntityType="Self.NotifyIcons" />
+    <EntitySet Name="NRégimen" EntityType="Self.NRégimen" />
+    <EntitySet Name="Provincias" EntityType="Self.Provincias" />
+    <EntitySet Name="Salario" EntityType="Self.Salario" />
+    <EntitySet Name="TiempoServicio" EntityType="Self.TiempoServicio" />
+    <EntitySet Name="TipoAutenticación" EntityType="Self.TipoAutenticación" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <EntitySet Name="N_Baja" EntityType="Self.N_Baja" />
+    <EntitySet Name="Usu_Eliminados" EntityType="Self.Usu_Eliminados" />
+    <EntitySet Name="VersiónS" EntityType="Self.VersiónS" />
+    <AssociationSet Name="FK_Aut_TipoAutenticación" Association="Self.FK_Aut_TipoAutenticación">
+      <End Role="TipoAutenticación" EntitySet="TipoAutenticación" />
+      <End Role="Aut" EntitySet="Aut" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contribución_Inscripción" Association="Self.FK_Contribución_Inscripción">
+      <End Role="Inscripción" EntitySet="Inscripción" />
+      <End Role="Contribución" EntitySet="Contribución" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contribución_N_BaseC" Association="Self.FK_Contribución_N_BaseC">
+      <End Role="N_BaseC" EntitySet="N_BaseC" />
+      <End Role="Contribución" EntitySet="Contribución" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DPersonales_Municipios" Association="Self.FK_DPersonales_Municipios">
+      <End Role="Municipios" EntitySet="Municipios" />
+      <End Role="DPersonales" EntitySet="DPersonales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DPersonales_nEstado" Association="Self.FK_DPersonales_nEstado">
+      <End Role="NEstado" EntitySet="NEstado" />
+      <End Role="DPersonales" EntitySet="DPersonales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DPersonales_nRégimen" Association="Self.FK_DPersonales_nRégimen">
+      <End Role="NRégimen" EntitySet="NRégimen" />
+      <End Role="DPersonales" EntitySet="DPersonales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inscripción_DPersonales" Association="Self.FK_Inscripción_DPersonales">
+      <End Role="DPersonales" EntitySet="DPersonales" />
+      <End Role="Inscripción" EntitySet="Inscripción" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Salario_DPersonales" Association="Self.FK_Salario_DPersonales">
+      <End Role="DPersonales" EntitySet="DPersonales" />
+      <End Role="Salario" EntitySet="Salario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TiempoServicio_DPersonales" Association="Self.FK_TiempoServicio_DPersonales">
+      <End Role="DPersonales" EntitySet="DPersonales" />
+      <End Role="TiempoServicio" EntitySet="TiempoServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Grupos" Association="Self.FK_Usuarios_Grupos">
+      <End Role="Grupos" EntitySet="Grupos" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inscripción_N_Acividad" Association="Self.FK_Inscripción_N_Acividad">
+      <End Role="N_Acividad" EntitySet="N_Acividad" />
+      <End Role="Inscripción" EntitySet="Inscripción" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Municipios_Provincias" Association="Self.FK_Municipios_Provincias">
+      <End Role="Provincias" EntitySet="Provincias" />
+      <End Role="Municipios" EntitySet="Municipios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Municipios" Association="Self.FK_Usuarios_Municipios">
+      <End Role="Municipios" EntitySet="Municipios" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TiempoServicio_N_Tipo" Association="Self.FK_TiempoServicio_N_Tipo">
+      <End Role="N_Tipo" EntitySet="N_Tipo" />
+      <End Role="TiempoServicio" EntitySet="TiempoServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Provincias" Association="Self.FK_Usuarios_Provincias">
+      <End Role="Provincias" EntitySet="Provincias" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="CooP_Clientes" Association="Self.CooP_Clientes">
+      <End Role="Cooperativas" EntitySet="Cooperativas" />
+      <End Role="DPersonales" EntitySet="DPersonales" />
+    </AssociationSet>
+    <EntitySet Name="HistorialContribución" EntityType="RegUsu_devModel.HistorialContribución" />
+  </EntityContainer>
+  <EntityType Name="HistorialContribución">
+    <Key>
+      <PropertyRef Name="idCambio" />
+    </Key>
+    <Property Name="idCambio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdInscrip" Type="Int32" Nullable="false" />
+    <Property Name="IdBase" Type="Int32" Nullable="false" />
+    <Property Name="Porcent" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Año" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="FechaCambio" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+</Schema>
